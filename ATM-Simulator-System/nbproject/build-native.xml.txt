@@ -1,0 +1,11 @@
+<target name="build-native">
+    <echo message="Building native executable using GraalVM"/>
+    <exec executable="${graalvm.home}/bin/native-image" failonerror="true">
+        <arg value="--no-server"/>
+        <arg value="-H:+ReportExceptionStackTraces"/>
+        <arg value="-jar"/>
+        <arg value="${dist.jar}"/>
+        <arg value="-o"/>
+        <arg value="${dist.dir}/${application.title}"/>
+    </exec>
+</target>
